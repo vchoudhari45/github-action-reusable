@@ -1,0 +1,17 @@
+name: workflow-B
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  # example of calling workflow-A with the default value
+  call-workflow-without-passing-input-data:
+    uses: ./.github/workflows/workflow-A.yaml
+  
+  # example of calling workflow-A with "abc" as input
+  call-workflow-with-input-data:
+    uses: ./.github/workflows/workflow-A.yaml
+    with:
+      my_input_value: abc

@@ -1,0 +1,19 @@
+name: workflow-A
+
+on:
+  workflow_call:  # this makes the workflow callable from another workflow
+    inputs:
+      my_input_value:
+        description: 'An optional input with a default value'
+        required: false
+        default: 'Default value'
+        type: string  # this defines the type of the input
+
+jobs:
+  setup:
+    name: Print Hello Reusable Workflow
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Reusable Message
+        run: |
+          echo "Input value is: ${{ inputs.my_input_value }}"
